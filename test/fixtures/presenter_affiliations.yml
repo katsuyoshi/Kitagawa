@@ -1,9 +1,2 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  presenter_id: 1
-  affiliation_id: 1
-
-two:
-  presenter_id: 1
-  affiliation_id: 1

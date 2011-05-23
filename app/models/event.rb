@@ -1,8 +1,9 @@
+# --*-- coding: utf-8 --*--
 class Event < ActiveRecord::Base
   belongs_to :day
   belongs_to :room
   has_many :event_presenters
-  has_many :events, :through => :event_presenters
+  has_many :presenters, :through => :event_presenters
 
   scope :ja, where(:locale => 'ja')
   scope :en, where(:locale => 'en')
@@ -14,12 +15,27 @@ class Event < ActiveRecord::Base
   def self.import_from_json_file path
     parser = JSON.parser.new File.read(path)
     timetables = parser.parse['timetable']
-    parse_en_with_locale_and_timetalbes 'ja', timetables
-    parse_en_with_locale_and_timetalbes 'en', timetables    
+    parse_with_locale_and_timetalbes 'ja', timetables
+    parse_with_locale_and_timetalbes 'en', timetables    
   end
   
 private
-  def self.parse_en_with_locale_and_timetalbes locale, timetables
+  def self.split_affiliations affiliations
+    results = []
+    affiliations.split(/\/|\||,/).each do |a|
+      next if a.nil?
+      a.strip!
+      case a
+      when /^ltd/i, /^inc/i
+        results.last << ", #{a}"
+      else
+        results << a
+      end
+    end
+    results
+  end
+  
+  def self.parse_with_locale_and_timetalbes locale, timetables
     contrary_locale = locale == 'ja' ? 'en' : 'ja'
     days = timetables.keys.sort
     days.each do |d|
@@ -45,7 +61,6 @@ private
               type = 'session'
             end
             
-p code
             event = Event.find_or_create_by_locale_and_code locale, code
             event.kind = type
             event.title = ev['title'][locale] || ev['title'][contrary_locale]
@@ -57,8 +72,27 @@ p code
             event.position = index
             day.events << event unless event.day
             event.save if event.changed?
-p event if code == '16MDN'
-#p event
+            
+            ev['presenters'].each do |pr|
+            
+              presenter = Presenter.find_or_create_by_locale_and_name locale, pr['name'][locale] || pr['name'][contrary_locale]
+              presenter.bio ||= pr['bio'][locale] || pr['bio'][contrary_locale]
+
+              if pr['affiliation']
+                af_titles = pr['affiliation'][locale] || pr['affiliation'][contrary_locale]
+              else
+                af_titles = nil
+              end
+# p af_titles
+              split_affiliations(af_titles).each do |t|
+# p t
+                affiliation = Affiliation.find_or_create_by_locale_and_title locale, t
+                presenter.affiliations << affiliation unless presenter.affiliations.include? affiliation
+              end if af_titles
+              
+              event.presenters << presenter unless event.presenters.include? presenter
+            end if ev['presenters']
+            
             index = index + 1
           end
         end

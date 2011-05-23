@@ -43,5 +43,17 @@ class EventTest < ActiveSupport::TestCase
     assert_equal %w(2011-07-18:M:open:1 18M01 18M02 2011-07-18:M:break:1 18M03 18M04 2011-07-18:M:lunch:1 18M05 18M06 2011-07-18:M:break:2 18M07 18M08 2011-07-18:M:break:3 18M09 2011-07-18:M:break:4 18M10 18MCL), days[2].events.en.main.map {|e| e.code} 
     assert_equal %w(2011-07-18:S:open:1 18S01 18S02 2011-07-18:S:break:1 18S03 18S04 2011-07-18:S:lunch:1 18S05 18S06 2011-07-18:S:break:2 18S07 18S08 2011-07-18:S:break:3 2011-07-18:S:break:4), days[2].events.en.sub.map {|e| e.code} 
 
+#p Presenter.all.map{|p| p.name}
+p Affiliation.all.map{|a| a.title}
+
   end
+  
+  test "import_from_json_file should stay data when it was called second time" do
+    Event.import_from_json_file @json_path
+    Event.import_from_json_file @json_path
+    
+    assert_equal 1, Event.find_by_locale_and_code('ja', '16M01').presenters.size
+    assert_equal 1, Event.find_by_locale_and_code('ja', '16M01').presenters[0].affiliations.size
+  end
+  
 end
