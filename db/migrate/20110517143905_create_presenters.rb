@@ -4,6 +4,7 @@ class CreatePresenters < ActiveRecord::Migration
       t.string :name
       t.string :bio
       t.string :locale
+      t.string :affiliation
 
       t.timestamps
     end

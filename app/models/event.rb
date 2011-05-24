@@ -20,21 +20,6 @@ class Event < ActiveRecord::Base
   end
   
 private
-  def self.split_affiliations affiliations
-    results = []
-    affiliations.split(/\/|\||,/).each do |a|
-      next if a.nil?
-      a.strip!
-      case a
-      when /^ltd/i, /^inc/i
-        results.last << ", #{a}"
-      else
-        results << a
-      end
-    end
-    results
-  end
-  
   def self.parse_with_locale_and_timetalbes locale, timetables
     contrary_locale = locale == 'ja' ? 'en' : 'ja'
     days = timetables.keys.sort
@@ -77,20 +62,9 @@ private
             
               presenter = Presenter.find_or_create_by_locale_and_name locale, pr['name'][locale] || pr['name'][contrary_locale]
               presenter.bio ||= pr['bio'][locale] || pr['bio'][contrary_locale]
-
-              if pr['affiliation']
-                af_titles = pr['affiliation'][locale] || pr['affiliation'][contrary_locale]
-              else
-                af_titles = nil
-              end
-# p af_titles
-              split_affiliations(af_titles).each do |t|
-# p t
-                affiliation = Affiliation.find_or_create_by_locale_and_title locale, t
-                presenter.affiliations << affiliation unless presenter.affiliations.include? affiliation
-              end if af_titles
-              
+              presenter.affiliation = pr['affiliation'][locale] || pr['affiliation'][contrary_locale] if pr['affiliation']              
               event.presenters << presenter unless event.presenters.include? presenter
+              
             end if ev['presenters']
             
             index = index + 1

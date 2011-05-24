@@ -10,14 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110520063040) do
-
-  create_table "affiliations", :force => true do |t|
-    t.string   "title"
-    t.string   "locale"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110520062839) do
 
   create_table "days", :force => true do |t|
     t.date     "date"
@@ -49,18 +42,11 @@ ActiveRecord::Schema.define(:version => 20110520063040) do
     t.datetime "updated_at"
   end
 
-  create_table "presenter_affiliations", :force => true do |t|
-    t.integer  "presenter_id"
-    t.integer  "affiliation_id"
-    t.integer  "affiliation_position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "presenters", :force => true do |t|
     t.string   "name"
     t.string   "bio"
     t.string   "locale"
+    t.string   "affiliation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
