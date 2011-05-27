@@ -4,3 +4,4 @@ log/*.log
 tmp/**/*
 kitagawa.xcworkspace/
 .rvmrc
+coverage

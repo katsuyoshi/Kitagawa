@@ -9,6 +9,9 @@ class Event < ActiveRecord::Base
   scope :en, where(:locale => 'en')
   scope :main, joins(:room).where('rooms.code' => 'M')
   scope :sub, joins(:room).where('rooms.code' => 'S')
+  scope :locale, lambda {|l|
+    where('locale = ?', l)
+  }
 
   default_scope order('start_at, position')
 
@@ -17,6 +20,34 @@ class Event < ActiveRecord::Base
     timetables = parser.parse['timetable']
     parse_with_locale_and_timetalbes 'ja', timetables
     parse_with_locale_and_timetalbes 'en', timetables    
+  end
+  
+  def hash_for_json
+    {
+      :event => {
+        :kind => self.kind,
+        :title => self.title,
+        :abstract => self.abstract,
+        :start_at => self.start_at,
+        :end_at => self.end_at,
+        :room => self.room.name,
+        :language => self.language,
+        :locale => self.locale,
+        :position => self.position,
+       :presenters => self.presenters.map {|p| p.hash_for_json}
+      }
+    }
+  end
+  
+  def to_json
+    hash_for_json.to_json
+  end
+  
+  def self.all_to_json
+    {
+      :ja => Day.all.map {|d| d.hash_for_json_with_locale('ja')},
+      :en => Day.all.map {|d| d.hash_for_json_with_locale('en')}
+    }.to_json
   end
   
 private
