@@ -16,7 +16,10 @@ class Event < ActiveRecord::Base
   default_scope order('start_at, position')
 
   def self.import_from_json_file path
-    parser = JSON.parser.new File.read(path)
+    parser = nil
+    open(path) do |f|
+      parser = JSON.parser.new f.read
+    end
     timetables = parser.parse['timetable']
     parse_with_locale_and_timetalbes 'ja', timetables
     parse_with_locale_and_timetalbes 'en', timetables    
@@ -43,15 +46,21 @@ class Event < ActiveRecord::Base
     hash_for_json.to_json
   end
   
-  def self.all_to_json
+  def self.all_for_json
     {
       :ja => Day.all.map {|d| d.hash_for_json_with_locale('ja')},
       :en => Day.all.map {|d| d.hash_for_json_with_locale('en')}
-    }.to_json
+    }
+  end
+  
+  def self.all_to_json
+    all_for_json.to_json
   end
   
 private
   def self.parse_with_locale_and_timetalbes locale, timetables
+    Room.prepare_rooms
+    
     contrary_locale = locale == 'ja' ? 'en' : 'ja'
     days = timetables.keys.sort
     days.each do |d|
