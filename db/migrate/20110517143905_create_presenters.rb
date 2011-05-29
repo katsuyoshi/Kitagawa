@@ -1,6 +1,7 @@
 class CreatePresenters < ActiveRecord::Migration
   def self.up
     create_table :presenters do |t|
+      t.string :code
       t.string :name
       t.string :bio
       t.string :locale

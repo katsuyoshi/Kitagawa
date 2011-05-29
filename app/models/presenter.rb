@@ -5,6 +5,7 @@ class Presenter < ActiveRecord::Base
   def hash_for_json
     {
       :presenter => {
+        :code => self.code,
         :name => self.name,
         :affiliation => self.affiliation,
         :bio => self.bio,

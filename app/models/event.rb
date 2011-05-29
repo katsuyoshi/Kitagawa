@@ -1,4 +1,6 @@
 # --*-- coding: utf-8 --*--
+require 'open-uri'
+
 class Event < ActiveRecord::Base
   belongs_to :day
   belongs_to :room
@@ -98,11 +100,26 @@ private
             day.events << event unless event.day
             event.save if event.changed?
             
-            ev['presenters'].each do |pr|
+            ev['presenters'].each_with_index do |pr, i|
             
-              presenter = Presenter.find_or_create_by_locale_and_name locale, pr['name'][locale] || pr['name'][contrary_locale]
-              presenter.bio ||= pr['bio'][locale] || pr['bio'][contrary_locale]
-              presenter.affiliation = pr['affiliation'][locale] || pr['affiliation'][contrary_locale] if pr['affiliation']              
+              name = pr['name'][locale] || pr['name'][contrary_locale]
+              bio = pr['bio'][locale] || pr['bio'][contrary_locale]
+              affiliation = pr['affiliation'][locale] || pr['affiliation'][contrary_locale] if pr['affiliation']
+              
+              presenter = Presenter.find_or_create_by_locale_and_name locale, name
+              unless presenter.bio.blank?
+                # bio‚ªˆÙ‚È‚éê‡‚Í“¯©“¯–¼‚Æ‚·‚é
+                if presenter.locale == locale
+                  unless presenter.bio == bio
+                    presenter = Presenter.create :locale => locale, :name => name
+puts presenter
+                  end
+                end
+              end
+              presenter.code ||= "#{event.code}:#{i + 1}"
+              presenter.bio ||= bio
+              presenter.affiliation = affiliation
+              presenter.save if presenter.changed?
               event.presenters << presenter unless event.presenters.include? presenter
               
             end if ev['presenters']

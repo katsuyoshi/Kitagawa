@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20110520062839) do
   end
 
   create_table "presenters", :force => true do |t|
+    t.string   "code"
     t.string   "name"
     t.string   "bio"
     t.string   "locale"
