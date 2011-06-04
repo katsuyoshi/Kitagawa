@@ -3,6 +3,7 @@ Kitagawa::Application.routes.draw do
   get 'events/import', :controller => 'events', :action => 'import'
   get 'events/index', :controller => 'events', :action => 'index'
   get 'events', :controller => 'events', :action => 'index'
+  get 'events/last_updated', :controller => 'events', :action => 'last_updated'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
