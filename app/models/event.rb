@@ -108,15 +108,6 @@ private
               affiliation = pr['affiliation'][locale] || pr['affiliation'][contrary_locale] if pr['affiliation']
               
               presenter = Presenter.find_or_create_by_locale_and_name locale, name
-              unless presenter.bio.blank?
-                # bio‚ªˆÙ‚È‚éê‡‚Í“¯©“¯–¼‚Æ‚·‚é
-                if presenter.locale == locale
-                  unless presenter.bio == bio
-                    presenter = Presenter.create :locale => locale, :name => name
-puts presenter
-                  end
-                end
-              end
               presenter.code ||= "#{event.code}:#{i + 1}"
               presenter.bio ||= bio
               presenter.affiliation = affiliation
