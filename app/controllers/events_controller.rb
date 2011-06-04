@@ -8,14 +8,12 @@ class EventsController < ApplicationController
   
   def import
     Event.import_from_json_file 'http://rubykaigi.org/2011/schedule/all.json'
-    event = Event.order("updated_at desc").first
-    render :text => "last updated : #{event.updated_at}"
+    render :text => "last updated : #{DataFile.last_updated_by_key('timetables')}"
   end
   
   def last_updated
-    data_file = DataFile.find_by_key 'timetables'
     respond_to do |format|
-      format.json { render :json => { :last_updated => data_file.updated_at } }
+      format.json { render :json => { :last_updated => DataFile.last_updated_by_key('timetables') } }
     end
   end
   
