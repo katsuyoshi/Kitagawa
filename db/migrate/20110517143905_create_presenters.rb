@@ -3,7 +3,7 @@ class CreatePresenters < ActiveRecord::Migration
     create_table :presenters do |t|
       t.string :code
       t.string :name
-      t.string :bio
+      t.text :bio
       t.string :locale
       t.string :affiliation
 
