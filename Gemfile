@@ -30,4 +30,4 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 #   gem 'webrat'
 # end
 
-gem 'json'
+gem 'json', '1.4.6'
