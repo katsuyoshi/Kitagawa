@@ -18,6 +18,10 @@ class Room < ActiveRecord::Base
     create_if_needs 'S', 'en', 'Sub Hall', 2
   end
   
+  def hash_for_json
+    { :code => self.code, :name => self.name }
+  end
+  
   scope :ja, where(:locale => 'ja')
   scope :en, where(:locale => 'en')
   
