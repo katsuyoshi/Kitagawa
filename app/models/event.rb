@@ -30,12 +30,13 @@ class Event < ActiveRecord::Base
   def hash_for_json
     {
       :event => {
+        :code => self.code,
         :kind => self.kind,
         :title => self.title,
         :abstract => self.abstract,
         :start_at => self.start_at,
         :end_at => self.end_at,
-        :room => self.room.name,
+        :room => self.room.hash_for_json,
         :language => self.language,
         :locale => self.locale,
         :position => self.position,
