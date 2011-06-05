@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
   belongs_to :room
   has_many :event_presenters
   has_many :presenters, :through => :event_presenters
+  has_many :sub_events, :class_name => 'Event', :foreign_key => 'parent_event_id'
+  belongs_to :parent_event, :class_name => 'Event', :foreign_key => 'parent_event_id'
 
   scope :ja, where(:locale => 'ja')
   scope :en, where(:locale => 'en')
@@ -53,7 +55,8 @@ class Event < ActiveRecord::Base
         :language => self.language,
         :locale => self.locale,
         :position => self.position,
-       :presenters => self.presenters.map {|p| p.hash_for_json}
+        :presenters => self.presenters.map {|p| p.hash_for_json},
+        :sub_events => self.sub_events.map {|e| e.hash_for_json}
       }
     }
   end
