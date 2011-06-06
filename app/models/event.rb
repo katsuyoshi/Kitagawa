@@ -1,4 +1,4 @@
-# --*-- coding: utf-8 --*--
+# -*- coding: utf-8 -*-
 require 'open-uri'
 
 class Event < ActiveRecord::Base
@@ -141,9 +141,11 @@ private
       end
     end
     
+=begin Žè“ü—Í‚Ì•¨‚àíœ‚·‚é‰Â”\«‚ª‚ ‚é‚Ì‚Å•Û—¯
     # íœ‚³‚ê‚½•¨‚ðíœ
     Event.find(:all, :conditions => ['id not in (?)', @imported_event_ids]).each {|d| d.destroy }
     Presenter.find(:all, :conditions => ['id not in (?)', @imported_presenter_ids]).each {|d| d.destroy }
+=end
     
   end
 
