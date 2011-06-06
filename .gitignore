@@ -5,3 +5,4 @@ tmp/**/*
 kitagawa.xcworkspace/
 .rvmrc
 coverage
+.DS_Store

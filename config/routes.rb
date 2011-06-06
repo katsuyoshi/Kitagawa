@@ -1,5 +1,8 @@
 Kitagawa::Application.routes.draw do
 
+  get "conferences/index"
+  get 'conferences', :controller => 'conferences', :action => 'index'
+  
   get 'events/import', :controller => 'events', :action => 'import'
   get 'events/index', :controller => 'events', :action => 'index'
   get 'events', :controller => 'events', :action => 'index'

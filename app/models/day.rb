@@ -1,4 +1,5 @@
 class Day < ActiveRecord::Base
+  belongs_to :conference
   has_many :events
   
   default_scope order('date')
