@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+require 'open-uri'
+
 class Conference < ActiveRecord::Base
   has_many :days
   has_many :rooms

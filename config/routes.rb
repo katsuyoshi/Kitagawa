@@ -3,12 +3,8 @@ Kitagawa::Application.routes.draw do
   get 'conferences/import_rubykaigi2011', :controller => 'conferences', :action => 'import_rubykaigi2011'
   get "conferences/index"
   get 'conferences', :controller => 'conferences', :action => 'index'
-  
-  get 'events/import', :controller => 'events', :action => 'import'
-  get 'events/index', :controller => 'events', :action => 'index'
-  get 'events', :controller => 'events', :action => 'index'
-  get 'events/last_updated', :controller => 'events', :action => 'last_updated'
-  
+  get 'conferences/updated', :controller => 'conferences', :action => 'updated'
+    
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
