@@ -56,5 +56,29 @@ class ConferenceTest < ActiveSupport::TestCase
 
   end
   
+  test "import_from_json_file should not change datas when it was called second time" do
+    Conference.import_rubykaigi2011_from_json_file @json_path
+    assert_difference("Conference.rubykaigi2011.events.size", 0) do
+      assert_difference("Presenter.all.size", 0) do
+        Conference.import_rubykaigi2011_from_json_file @json_path
+      end
+    end
+  end
+  
+  test "import_from_json_file should have a person by ja and en" do
+    Conference.import_rubykaigi2011_from_json_file @json_path
+    
+    presenters = Presenter.find_all_by_code "16M01:1"
+    assert_equal 2, presenters.size
+    
+    en_presenter = presenters.find{|p| p.locale == "en"}
+    assert en_presenter
+    assert_equal "Aaron Patterson (tenderlove)", en_presenter.name
+    
+    ja_presenter = presenters.find{|p| p.locale == "ja"}
+    assert ja_presenter
+    assert_equal "Aaron Patterson (tenderlove)", ja_presenter.name
+  end
+  
   
 end
