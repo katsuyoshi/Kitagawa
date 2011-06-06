@@ -1,5 +1,6 @@
 Kitagawa::Application.routes.draw do
 
+  get 'conferences/import_rubykaigi2011', :controller => 'conferences', :action => 'import_rubykaigi2011'
   get "conferences/index"
   get 'conferences', :controller => 'conferences', :action => 'index'
   

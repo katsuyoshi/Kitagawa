@@ -4,6 +4,7 @@ require 'open-uri'
 class Event < ActiveRecord::Base
   belongs_to :day
   belongs_to :room
+  belongs_to :conference
   has_many :event_presenters
   has_many :presenters, :through => :event_presenters
   has_many :sub_events, :class_name => 'Event', :foreign_key => 'parent_event_id'

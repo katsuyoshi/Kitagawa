@@ -1,9 +1,8 @@
 class AddConferenceIdToDay < ActiveRecord::Migration
   def self.up
     add_column :days, :conference_id, :integer
-    
-    rubykaigi2011 = Conference.find_by_code 'RubyKaigi2011'
-    Day.all.each{|d| d.conference = rubykaigi2011; d.save}
+    add_column :rooms, :conference_id, :integer
+    add_column :events, :conference_id, :integer
   end
 
   def self.down

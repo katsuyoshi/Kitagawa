@@ -57,12 +57,13 @@ ActiveRecord::Schema.define(:version => 20110606125758) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_event_id"
+    t.integer  "conference_id"
   end
 
   create_table "presenters", :force => true do |t|
     t.string   "code"
     t.string   "name"
-    t.string   "bio"
+    t.text     "bio"
     t.string   "locale"
     t.string   "affiliation"
     t.datetime "created_at"
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20110606125758) do
     t.string   "locale"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "conference_id"
   end
 
 end

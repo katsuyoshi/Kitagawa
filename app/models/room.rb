@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class Room < ActiveRecord::Base
-  belongs_to :day
+  belongs_to :conference
   
   has_many :events
 
