@@ -7,6 +7,7 @@ class Presenter < ActiveRecord::Base
       :presenter => {
         :code => self.code,
         :name => self.name,
+        :gravatar => self.gravatar,
         :affiliation => self.affiliation,
         :bio => self.bio,
         :locale => self.locale,

@@ -104,7 +104,7 @@ private
             event = conference.events.find_or_create_by_locale_and_code locale, code
             event.kind = type
             event.title = ev['title'][locale] || ev['title'][contrary_locale]
-            event.abstract = ev['abstract'] ? ev['abstract'][locale] || ev['abstract'][contrary_locale] : nil 
+            event.abstract = ev['abstract'] ? ev['abstract'][locale] || ev['abstract'][contrary_locale] : nil
             event.start_at = start_at
             event.end_at = end_at
             event.room = room
@@ -121,6 +121,7 @@ private
               
               presenter = Presenter.find_or_create_by_locale_and_name locale, name
               presenter.code ||= "#{event.code}:#{i + 1}"
+              presenter.gravatar = pr['gravatar']
               presenter.bio ||= bio
               presenter.affiliation = affiliation
               presenter.save if presenter.changed?
