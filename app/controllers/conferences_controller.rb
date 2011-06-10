@@ -1,11 +1,8 @@
 class ConferencesController < ApplicationController
 
   def index
-    h = {
-      :conferences => Conference.all.map{|c| c.hash_for_json}
-    }
     respond_to do |format|
-      format.json  { render :json => h }
+      format.json  { render :json => Conference.all_conferences_hash_for_json }
     end
   end
 

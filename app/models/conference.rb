@@ -6,17 +6,24 @@ class Conference < ActiveRecord::Base
   has_many :rooms
   has_many :events
 
-
-  def hash_for_json
+  def self.all_conferences_hash_for_json
     {
       :ja => {
-        :title => self.title_ja,
-        :days => Day.all.map {|d| d.events.locale('ja').map {|e| e.hash_for_json}}
+        :conferences => self.all.map{|c| c.hash_for_json_with_locale 'ja'}
       },
       :en => {
-        :title => self.title_en,
-        :days => Day.all.map {|d| d.events.locale('en').map {|e| e.hash_for_json}}
+        :conferences => self.all.map{|c| c.hash_for_json_with_locale 'en'}
       }
+    }
+  end
+
+  def hash_for_json_with_locale locale
+    {
+      :conference => {
+        :code => self.code,
+        :title => locale == 'ja' ? self.title_ja : self.title_en,
+        :days => self.days.map {|d| d.hash_for_json_with_locale(locale)}
+      },
     }
   end
   
