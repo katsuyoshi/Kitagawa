@@ -1,0 +1,27 @@
+---
+events:
+  - parent_code:  17M10
+    title:
+      en: 'lightning talks 1(en)'
+      ja: 'lightning talks 1(ja)'
+      presenters:
+        - name:
+            en: 'presenter 1(en)'
+            ja: 'presenter 1(ja)'
+    abstract:
+      en: 'abstract of lightning talks 1(en)'
+      ja: 'abstract of lightning talks 1(ja)'
+  - parent_code:  17M10
+    title:
+      en: 'lightning talks 2(en)'
+      ja: 'lightning talks 2(ja)'
+    abstract:
+      en: 'abstract of lightning talks 2(en)'
+      ja: 'abstract of lightning talks 2(ja)'
+  - parent_code:  17M10
+    title:
+      en: 'lightning talks 3(en)'
+      ja: 'lightning talks 3(ja)'
+    abstract:
+      en: 'abstract of lightning talks 3(en)'
+      ja: 'abstract of lightning talks 3(ja)'

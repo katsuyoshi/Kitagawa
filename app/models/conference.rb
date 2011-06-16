@@ -5,6 +5,7 @@ class Conference < ActiveRecord::Base
   has_many :days
   has_many :rooms
   has_many :events
+  has_many :presenters
 
   def self.all_conferences_hash_for_json
     {
@@ -60,7 +61,7 @@ class Conference < ActiveRecord::Base
       context = f.read
       # 前回と同じなら更新しない
       if last_data.context == context
-        return
+#        return
       end
       last_data.context = context
       last_data.save
@@ -71,6 +72,13 @@ class Conference < ActiveRecord::Base
     parse_rubykaigi2011_with_locale_and_timetalbes 'ja', timetables
     parse_rubykaigi2011_with_locale_and_timetalbes 'en', timetables    
   end
+  
+  def self.import_lightning_talks_of_rubykaigi2011
+    yaml = YAML.load_file File.join(Rails.root, 'db/lightning_talks_of_rubykaigi2011.yml')
+    parse_lightning_talks_of_rubykaigi2011_with_locale_and_events 'ja', yaml['events']
+    parse_lightning_talks_of_rubykaigi2011_with_locale_and_events 'en', yaml['events']
+  end
+  
   
 private
   def self.parse_rubykaigi2011_with_locale_and_timetalbes locale, timetables 
@@ -119,7 +127,7 @@ private
               bio = pr['bio'][locale] || pr['bio'][contrary_locale] if pr['bio']
               affiliation = pr['affiliation'][locale] || pr['affiliation'][contrary_locale] if pr['affiliation']
               
-              presenter = Presenter.find_or_create_by_locale_and_name locale, name
+              presenter = conference.presenters.find_or_create_by_locale_and_name locale, name
               presenter.code ||= "#{event.code}:#{i + 1}"
               presenter.gravatar = pr['gravatar']
               presenter.bio ||= bio
@@ -138,5 +146,46 @@ private
     
   end
 
+  def self.parse_lightning_talks_of_rubykaigi2011_with_locale_and_events locale, events
+    contrary_locale = locale == 'ja' ? 'en' : 'ja'
+    h = {}
+    
+    events.each do |e|
+      parent_code = e['parent_code']
+      parent = Event.find_by_code_and_locale parent_code, locale
+      if parent
+        position = h[parent_code]
+        position = position ? position + 1 : 1
+        h[parent_code] = position
+        
+        code = "#{parent_code}:#{position}"
+        event = parent.sub_events.find_or_create_by_code_and_locale(code, locale)
+        event.kind = 'session'
+        event.title = e['title'][locale] || e['title'][contrary_locale]
+        event.abstract = e['abstract'][locale] || e['abstract'][contrary_locale]
+        event.room = parent.room
+        event.start_at = parent.start_at
+        event.end_at = parent.end_at
+        event.position = position
+        event.save if event.changed?
 
+        e['presenters'].each_with_index do |pr, i|
+            
+          name = pr['name'][locale] || pr['name'][contrary_locale]
+          bio = pr['bio'][locale] || pr['bio'][contrary_locale] if pr['bio']
+          affiliation = pr['affiliation'][locale] || pr['affiliation'][contrary_locale] if pr['affiliation']
+              
+          presenter = conference.presenters.find_or_create_by_locale_and_name locale, name
+          presenter.code ||= "#{event.code}:#{i + 1}"
+          presenter.gravatar = pr['gravatar']
+          presenter.bio ||= bio
+          presenter.affiliation = affiliation
+          presenter.save if presenter.changed?
+          event.presenters << presenter unless event.presenters.include? presenter
+              
+        end if e['presenters']
+      end
+    end
+  end
+  
 end

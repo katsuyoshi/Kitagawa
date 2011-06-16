@@ -1,6 +1,7 @@
 class Presenter < ActiveRecord::Base
   has_many :event_presenters
   has_many :events, :through => :event_presenters
+  belongs_to :conference
 
   def hash_for_json
     {
