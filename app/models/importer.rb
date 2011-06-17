@@ -10,7 +10,7 @@ class Importer
       context = f.read
       # 前回と同じなら更新しない
       if last_data.context == context
-# DEBUGME:        return
+        return
       end
       last_data.context = context
       last_data.save
@@ -23,19 +23,44 @@ class Importer
   end
   
   def self.import_lightning_talks_of_rubykaigi2011
-    yaml = YAML.load_file File.join(Rails.root, 'db/lightning_talks_of_rubykaigi2011.yml')
-    parse_lightning_talks_of_rubykaigi2011_with_locale_and_events 'ja', yaml['events']
-    parse_lightning_talks_of_rubykaigi2011_with_locale_and_events 'en', yaml['events']
+    yaml = load_yaml_file_with_key File.join(Rails.root, 'db/lightning_talks_of_rubykaigi2011.yml'), 'lightning_talks_of_rubykaigi2011'
+    if yaml
+      parse_lightning_talks_of_rubykaigi2011_with_locale_and_events 'ja', yaml['events']
+      parse_lightning_talks_of_rubykaigi2011_with_locale_and_events 'en', yaml['events']
+    end
+  end
+  
+  def self.import_archives_of_rubykaigi2011
+    yaml = load_yaml_file_with_key File.join(Rails.root, 'db/archives_of_rubykaigi2011.yml'), 'archives_of_rubykaigi2011'
+    if yaml
+      parse_archives_of_rubykaigi2011_with_locale_and_events 'ja', yaml['events']
+      parse_archives_of_rubykaigi2011_with_locale_and_events 'en', yaml['events']
+    end
   end
   
   def self.import_jrubykaigi2011
-    yaml = YAML.load_file File.join(Rails.root, 'db/jrubykaigi2011.yml')
+    yaml = load_yaml_file_with_key File.join(Rails.root, 'db/jrubykaigi2011.yml'), 'jrubykaigi2011'
     conference = Conference.jrubykaigi2011
     parse_conference_with_locale_and_timetable conference, 'ja', yaml['timetable']
     parse_conference_with_locale_and_timetable conference, 'en', yaml['timetable']
   end
   
 private
+
+  def self.load_yaml_file_with_key path, key
+    open(path) do |f|
+      last_data = DataFile.find_or_create_by_key(key)
+      context = f.read
+      # 前回と同じなら更新しない
+      if last_data.context == context
+        return nil
+      end
+      last_data.context = context
+      last_data.save
+    end
+    YAML.load_file path
+  end
+  
   def self.parse_rubykaigi2011_with_locale_and_timetalbes locale, timetables 
     conference = Conference.rubykaigi2011
            
@@ -144,13 +169,11 @@ private
   end
   
   def self.parse_conference_with_locale_and_timetable conference, locale, timetables
-p timetables
-           
+
     contrary_locale = locale == 'ja' ? 'en' : 'ja'
     days = timetables.keys.sort
     days.each do |d|
 
-p d    
       day = conference.days.find_or_create_by_date Date.parse(d)
       timetables[d].each do |e|
         room = conference.rooms.find_by_locale_and_code locale, e['room_id']
@@ -158,7 +181,6 @@ p d
         index_dict_for_special_event = {}
         e['sessions'].each do |s|
           start_at = Time.parse s['start']
-p s
           end_at = Time.parse s['end']
           s['events'].each do |ev|
             type = ev['_id']
@@ -187,7 +209,6 @@ p s
             
             ev['presenters'].each_with_index do |pr, i|
             
-p pr
               name = pr['name'][locale] || pr['name'][contrary_locale]
               bio = pr['bio'][locale] || pr['bio'][contrary_locale] if pr['bio']
               affiliation = pr['affiliation'][locale] || pr['affiliation'][contrary_locale] if pr['affiliation']
@@ -201,7 +222,6 @@ p pr
               event.presenters << presenter unless event.presenters.include? presenter
               
             end if ev['presenters']
-p event
             
             index = index + 1
           end
@@ -210,6 +230,27 @@ p event
       end
     end
     
+  end
+  
+  def self.parse_archives_of_rubykaigi2011_with_locale_and_events locale, events
+    contrary_locale = locale == 'ja' ? 'en' : 'ja'
+    events.each do |e|
+      e = e['event']
+      event = Event.find_by_code_and_locale e['code'], locale
+      deleted_archives = event.archives.clone
+      if event
+        e['archives'].each_with_index do |a, index|
+          archive = event.archives.find_or_create_by_url_and_locale a['url'], locale
+          archive.title = a['title'][locale] || a['title'][contrary_locale]
+          archive.position = index + 1
+          archive.save
+          deleted_archives.delete archive
+        end
+        deleted_archives.each do |a|
+          a.destroy
+        end
+      end
+    end
   end
   
 end

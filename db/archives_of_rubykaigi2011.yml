@@ -1,0 +1,12 @@
+events:
+  - event:
+      code: 16M01
+      archives:
+        - title:
+            ja: ニコニコ動画
+            en: NICO NICO DOUGA
+          url: http://niko.niko.foo.bar/
+        - title:
+            ja: Vimeo
+            en: Vimeo
+          url: http://vimeo.foo.bar/
