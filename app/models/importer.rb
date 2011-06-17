@@ -28,6 +28,13 @@ class Importer
     parse_lightning_talks_of_rubykaigi2011_with_locale_and_events 'en', yaml['events']
   end
   
+  def self.import_jrubykaigi2011
+    yaml = YAML.load_file File.join(Rails.root, 'db/jrubykaigi2011.yml')
+    conference = Conference.jrubykaigi2011
+    parse_conference_with_locale_and_timetable conference, 'ja', yaml['timetable']
+    parse_conference_with_locale_and_timetable conference, 'en', yaml['timetable']
+  end
+  
 private
   def self.parse_rubykaigi2011_with_locale_and_timetalbes locale, timetables 
     conference = Conference.rubykaigi2011
@@ -134,6 +141,75 @@ private
         end if e['presenters']
       end
     end
+  end
+  
+  def self.parse_conference_with_locale_and_timetable conference, locale, timetables
+p timetables
+           
+    contrary_locale = locale == 'ja' ? 'en' : 'ja'
+    days = timetables.keys.sort
+    days.each do |d|
+
+p d    
+      day = conference.days.find_or_create_by_date Date.parse(d)
+      timetables[d].each do |e|
+        room = conference.rooms.find_by_locale_and_code locale, e['room_id']
+        index = 1
+        index_dict_for_special_event = {}
+        e['sessions'].each do |s|
+          start_at = Time.parse s['start']
+p s
+          end_at = Time.parse s['end']
+          s['events'].each do |ev|
+            type = ev['_id']
+            case type
+            when 'announcement', 'break', 'dinner', 'lunch', 'open', 'party', 'transit_time'
+              code = index_dict_for_special_event[type]
+              code ||= 1
+              index_dict_for_special_event[type] = code + 1
+              code = "#{d}:#{room.code}:#{type}:#{code}"
+            else
+              code = type
+              type = 'session'
+            end
+            
+            event = conference.events.find_or_create_by_locale_and_code locale, code
+            event.kind = type
+            event.title = ev['title'][locale] || ev['title'][contrary_locale]
+            event.abstract = ev['abstract'] ? ev['abstract'][locale] || ev['abstract'][contrary_locale] : nil
+            event.start_at = start_at
+            event.end_at = end_at
+            event.room = room
+            event.language = ev['language']
+            event.position = index
+            day.events << event unless event.day
+            event.save if event.changed?
+            
+            ev['presenters'].each_with_index do |pr, i|
+            
+p pr
+              name = pr['name'][locale] || pr['name'][contrary_locale]
+              bio = pr['bio'][locale] || pr['bio'][contrary_locale] if pr['bio']
+              affiliation = pr['affiliation'][locale] || pr['affiliation'][contrary_locale] if pr['affiliation']
+              
+              presenter = conference.presenters.find_or_create_by_locale_and_name locale, name
+              presenter.code ||= "#{event.code}:#{i + 1}"
+              presenter.gravatar = pr['gravatar']
+              presenter.bio ||= bio
+              presenter.affiliation = affiliation
+              presenter.save if presenter.changed?
+              event.presenters << presenter unless event.presenters.include? presenter
+              
+            end if ev['presenters']
+p event
+            
+            index = index + 1
+          end
+        end
+        
+      end
+    end
+    
   end
   
 end

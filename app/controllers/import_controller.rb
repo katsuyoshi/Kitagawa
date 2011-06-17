@@ -7,6 +7,7 @@ class ImportController < ApplicationController
   end
   
   def jrubykaigi2011
+    Importer.import_jrubykaigi2011
   end
   
 end
