@@ -4,6 +4,6 @@ class AddConferenceIdToPresenter < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :conference_id, :integer
+    remove_column :presenters, :conference_id
   end
 end

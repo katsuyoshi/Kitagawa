@@ -40,9 +40,11 @@ class Importer
   
   def self.import_jrubykaigi2011
     yaml = load_yaml_file_with_key File.join(Rails.root, 'db/jrubykaigi2011.yml'), 'jrubykaigi2011'
-    conference = Conference.jrubykaigi2011
-    parse_conference_with_locale_and_timetable conference, 'ja', yaml['timetable']
-    parse_conference_with_locale_and_timetable conference, 'en', yaml['timetable']
+    if yaml
+      conference = Conference.jrubykaigi2011
+      parse_conference_with_locale_and_timetable conference, 'ja', yaml['timetable']
+      parse_conference_with_locale_and_timetable conference, 'en', yaml['timetable']
+    end
   end
   
 private
@@ -221,7 +223,11 @@ private
               presenter.save if presenter.changed?
               event.presenters << presenter unless event.presenters.include? presenter
               
-            end if ev['presenters']
+            end if ev['presenters']            
+
+            ev['sub_events'].each_with_index do |sev, i|
+              parse_sub_event event, sev, i + 1, locale
+            end if ev['sub_events']
             
             index = index + 1
           end
@@ -230,6 +236,40 @@ private
       end
     end
     
+  end
+  
+  def self.parse_sub_event parent, sev, index, locale
+    contrary_locale = locale == 'ja' ? 'en' : 'ja'
+    code = "#{parent.code}:#{index}"
+    sub_event = parent.sub_events.find_or_create_by_code_and_locale  code, locale
+p sub_event
+    sub_event.kind = 'session'
+    sub_event.title = sev['title'][locale] || sev['title'][contrary_locale]
+    sub_event.abstract = sev['abstract'] ? sev['abstract'][locale] || sev['abstract'][contrary_locale] : nil
+    sub_event.start_at = parent.start_at
+    sub_event.end_at = parent.end_at
+    sub_event.room = parent.room
+    sub_event.language = sev['language']
+    sub_event.position = index
+    sub_event.save if sub_event.changed?
+
+    sev['presenters'].each_with_index do |pr, i|
+    
+      name = pr['name'][locale] || pr['name'][contrary_locale]
+      bio = pr['bio'][locale] || pr['bio'][contrary_locale] if pr['bio']
+      affiliation = pr['affiliation'][locale] || pr['affiliation'][contrary_locale] if pr['affiliation']
+      
+      presenter = parent.conference.presenters.find_or_create_by_locale_and_name locale, name
+      presenter.code ||= "#{sub_event.code}:#{i + 1}"
+      presenter.gravatar = pr['gravatar']
+      presenter.bio ||= bio
+      presenter.affiliation = affiliation
+      presenter.save if presenter.changed?
+      sub_event.presenters << presenter unless sub_event.presenters.include? presenter
+      
+    end if sev['presenters']
+    
+    sub_event
   end
   
   def self.parse_archives_of_rubykaigi2011_with_locale_and_events locale, events

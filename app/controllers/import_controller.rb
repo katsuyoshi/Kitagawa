@@ -9,6 +9,7 @@ class ImportController < ApplicationController
   
   def jrubykaigi2011
     Importer.import_jrubykaigi2011
+    render :text => "updated : #{DataFile.updated}"
   end
   
 end
