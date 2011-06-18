@@ -3,6 +3,7 @@ require 'open-uri'
 
 class Importer
 
+  # RubyKaigi 2011のインポート
   def self.import_rubykaigi2011_from_json_file path
     parser = nil
     open(path) do |f|
@@ -22,6 +23,9 @@ class Importer
     parse_rubykaigi2011_with_locale_and_timetalbes 'en', timetables    
   end
   
+  # RubyKaigi 2011のLTインポート
+  # とりあえず db/lightning_talks_of_rubykaigi2011.yml から設定
+  # 公式の発表があったら変更になる
   def self.import_lightning_talks_of_rubykaigi2011
     yaml = load_yaml_file_with_key File.join(Rails.root, 'db/lightning_talks_of_rubykaigi2011.yml'), 'lightning_talks_of_rubykaigi2011'
     if yaml
@@ -30,6 +34,8 @@ class Importer
     end
   end
   
+  # RubyKaigi 2011の記録のインポート
+  # db/archives_of_rubykaigi2011.yml から設定
   def self.import_archives_of_rubykaigi2011
     yaml = load_yaml_file_with_key File.join(Rails.root, 'db/archives_of_rubykaigi2011.yml'), 'archives_of_rubykaigi2011'
     if yaml
@@ -38,6 +44,8 @@ class Importer
     end
   end
   
+  # JRubyKaigi 2011の記録のインポート
+  # db/jrubykaigi2011.yml から設定
   def self.import_jrubykaigi2011
     yaml = load_yaml_file_with_key File.join(Rails.root, 'db/jrubykaigi2011.yml'), 'jrubykaigi2011'
     if yaml
@@ -46,9 +54,13 @@ class Importer
       parse_conference_with_locale_and_timetable conference, 'en', yaml['timetable']
     end
   end
-  
+
+
+
 private
 
+  # yamlファイルの読み込み
+  # 前回処理したデータと同じならnilを返す
   def self.load_yaml_file_with_key path, key
     open(path) do |f|
       last_data = DataFile.find_or_create_by_key(key)
@@ -62,7 +74,9 @@ private
     end
     YAML.load_file path
   end
-  
+
+
+  # RubyKaigi 2011のJSONデータのバース
   def self.parse_rubykaigi2011_with_locale_and_timetalbes locale, timetables 
     conference = Conference.rubykaigi2011
            
@@ -128,6 +142,7 @@ private
     
   end
 
+  # RubyKaigi 2011のLTデータのバース
   def self.parse_lightning_talks_of_rubykaigi2011_with_locale_and_events locale, events
     contrary_locale = locale == 'ja' ? 'en' : 'ja'
     h = {}
@@ -170,6 +185,32 @@ private
     end
   end
   
+  # RubyKaigi 2011の記録のパース
+  def self.parse_archives_of_rubykaigi2011_with_locale_and_events locale, events
+    contrary_locale = locale == 'ja' ? 'en' : 'ja'
+    events.each do |e|
+      e = e['event']
+      event = Event.find_by_code_and_locale e['code'], locale
+      deleted_archives = event.archives.clone
+      if event
+        e['archives'].each_with_index do |a, index|
+          archive = event.archives.find_or_create_by_url_and_locale a['url'], locale
+          archive.title = a['title'][locale] || a['title'][contrary_locale]
+          archive.position = index + 1
+          archive.save
+          deleted_archives.delete archive
+        end
+        deleted_archives.each do |a|
+          a.destroy
+        end
+      end
+    end
+  end
+  
+
+  
+  # JRubyKaigi 2011のパース
+  # conferenceを変えればJRubyKaigi以外にも使えるつもり
   def self.parse_conference_with_locale_and_timetable conference, locale, timetables
 
     contrary_locale = locale == 'ja' ? 'en' : 'ja'
@@ -238,6 +279,7 @@ private
     
   end
   
+  # JRubyKaigi 2011のLTのパース
   def self.parse_sub_event parent, sev, index, locale
     contrary_locale = locale == 'ja' ? 'en' : 'ja'
     code = "#{parent.code}:#{index}"
@@ -270,27 +312,6 @@ p sub_event
     end if sev['presenters']
     
     sub_event
-  end
-  
-  def self.parse_archives_of_rubykaigi2011_with_locale_and_events locale, events
-    contrary_locale = locale == 'ja' ? 'en' : 'ja'
-    events.each do |e|
-      e = e['event']
-      event = Event.find_by_code_and_locale e['code'], locale
-      deleted_archives = event.archives.clone
-      if event
-        e['archives'].each_with_index do |a, index|
-          archive = event.archives.find_or_create_by_url_and_locale a['url'], locale
-          archive.title = a['title'][locale] || a['title'][contrary_locale]
-          archive.position = index + 1
-          archive.save
-          deleted_archives.delete archive
-        end
-        deleted_archives.each do |a|
-          a.destroy
-        end
-      end
-    end
   end
   
 end
