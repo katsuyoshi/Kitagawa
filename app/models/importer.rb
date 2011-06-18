@@ -284,7 +284,6 @@ private
     contrary_locale = locale == 'ja' ? 'en' : 'ja'
     code = "#{parent.code}:#{index}"
     sub_event = parent.sub_events.find_or_create_by_code_and_locale  code, locale
-p sub_event
     sub_event.kind = 'session'
     sub_event.title = sev['title'][locale] || sev['title'][contrary_locale]
     sub_event.abstract = sev['abstract'] ? sev['abstract'][locale] || sev['abstract'][contrary_locale] : nil
