@@ -62,6 +62,7 @@ private
   # yamlファイルの読み込み
   # 前回処理したデータと同じならnilを返す
   def self.load_yaml_file_with_key path, key
+    return nil unless File.exist? path
     open(path) do |f|
       last_data = DataFile.find_or_create_by_key(key)
       context = f.read
