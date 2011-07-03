@@ -20,7 +20,7 @@ timetable:
                 en: 'Opening Speach'
                 ja: 'オープニング'
               kind: opening
-        - start: '2011-07-15T19:35:00:00+09:00'
+        - start: '2011-07-15T19:35:00+09:00'
           end: '2011-07-15T19:55:00+09:00'
           events:
             - _id: '2011-07-15:19:35'
