@@ -37,18 +37,6 @@ class Rubykaigi2011Importer < Importer
       parse_archives_of_rubykaigi2011_with_locale_and_events 'en', yaml['events']
     end
   end
-  
-=begin
-  # RubyKaigi 2011の記録のインポート
-  # db/archives_of_rubykaigi2011.yml から設定
-  def self.import_archives_of_rubykaigi2011
-    yaml = load_yaml_file_with_key File.join(Rails.root, 'db/archives_of_rubykaigi2011.yml'), 'archives_of_rubykaigi2011'
-    if yaml
-      parse_archives_of_rubykaigi2011_with_locale_and_events 'ja', yaml['events']
-      parse_archives_of_rubykaigi2011_with_locale_and_events 'en', yaml['events']
-    end
-  end
-=end
 
 private
 
@@ -111,19 +99,6 @@ private
             
             ev['sub_events'].each_with_index do |sev, i|
               sub_event = parse_sub_event_of_event event, locale, sev
-=begin
-              code = sev['_id']
-              sub_event = event.sub_events.find_or_create_by_locale_and_code locale, code
-
-              sub_event.kind = 'session'
-              sub_event.title = sev['title'][locale] || sev['title'][contrary_locale]
-              sub_event.abstract = sev['abstract'] ? sev['abstract'][locale] || sev['abstract'][contrary_locale] : nil
-              sub_event.abstract = nil if sub_event.abstract == "#TODO"
-              sub_event.start_at = event.start_at
-              sub_event.end_at = event.end_at
-              sub_event.room = event.room
-              sub_event.language = ev['language']
-=end
               sub_event.position = i + 1
               sub_event.save if sub_event.changed?
             end if ev['sub_events']
@@ -194,28 +169,4 @@ private
     end
   end
   
-=begin
-  # RubyKaigi 2011の記録のパース
-  def self.parse_archives_of_rubykaigi2011_with_locale_and_events locale, events
-    contrary_locale = locale == 'ja' ? 'en' : 'ja'
-    events.each do |e|
-      e = e['event']
-      event = Event.find_by_code_and_locale e['code'], locale
-      deleted_archives = event.archives.clone
-      if event
-        e['archives'].each_with_index do |a, index|
-          archive = event.archives.find_or_create_by_url_and_locale a['url'], locale
-          archive.title = a['title'][locale] || a['title'][contrary_locale]
-          archive.position = index + 1
-          archive.save
-          deleted_archives.delete archive
-        end
-        deleted_archives.each do |a|
-          a.destroy
-        end
-      end
-    end
-  end
-=end
-
 end
