@@ -8,7 +8,7 @@ class ConferenceTest < ActiveSupport::TestCase
   
   # Replace this with your real tests.
   test "rubykaigi2011 should contains 2 rooms" do
-    conference = Conference.rubykaigi2011
+    conference = Rubykaigi2011Importer.conference
     assert conference
     assert_equal 4, conference.rooms.size
     assert_equal 2, conference.rooms.find_all_by_locale('ja').size
@@ -16,9 +16,9 @@ class ConferenceTest < ActiveSupport::TestCase
   end
   
   test "import_from_json_file should make all datas" do
-    Conference.import_rubykaigi2011_from_json_file @json_path
+    Rubykaigi2011Importer.import_from_json_file @json_path
     
-    conference = Conference.rubykaigi2011
+    conference = Rubykaigi2011Importer.conference
     days = conference.days
     assert_equal 3, days.size
     assert_equal Date.parse('2011-7-16'), days[0].date
@@ -57,16 +57,16 @@ class ConferenceTest < ActiveSupport::TestCase
   end
   
   test "import_from_json_file should not change datas when it was called second time" do
-    Conference.import_rubykaigi2011_from_json_file @json_path
-    assert_difference("Conference.rubykaigi2011.events.size", 0) do
+    Rubykaigi2011Importer.import_from_json_file @json_path
+    assert_difference("Rubykaigi2011Importer.conference.events.size", 0) do
       assert_difference("Presenter.all.size", 0) do
-        Conference.import_rubykaigi2011_from_json_file @json_path
+        Rubykaigi2011Importer.import_from_json_file @json_path
       end
     end
   end
   
   test "import_from_json_file should have a person by ja and en" do
-    Conference.import_rubykaigi2011_from_json_file @json_path
+    Rubykaigi2011Importer.import_from_json_file @json_path
     
     presenters = Presenter.find_all_by_code "16M01:1"
     assert_equal 2, presenters.size

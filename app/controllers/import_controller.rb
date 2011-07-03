@@ -1,13 +1,15 @@
 class ImportController < ApplicationController
 
   def rubykaigi2011
-    Rubykaigi2011Importer.import
+    Conference.transaction do
+      Rubykaigi2011Importer.import
+    end
     render :text => "updated : #{DataFile.updated}"
   end
   
   def jrubykaigi2011
     Conference.transaction do
-      Importer.import_jrubykaigi2011
+      Jrubykaigi2011Importer.import
     end
     render :text => "updated : #{DataFile.updated}"
   end
