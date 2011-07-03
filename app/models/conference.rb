@@ -5,7 +5,6 @@ class Conference < ActiveRecord::Base
   has_many :days
   has_many :rooms
   has_many :events
-  has_many :presenters
 
   def self.all_conferences_hash_for_json
     {

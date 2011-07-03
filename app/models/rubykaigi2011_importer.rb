@@ -103,17 +103,21 @@ private
             ev['presenters'].each_with_index do |pr, i|
             
               name = pr['name'][locale] || pr['name'][contrary_locale]
+# RubyKaigi.orgのtypoの修正
+# データが更新されたら削除する事
+name = "Koichiro Ohba" if name == "Koichiroo Ohba"
+# ここまで
               bio = pr['bio'][locale] || pr['bio'][contrary_locale] if pr['bio']
               affiliation = pr['affiliation'][locale] || pr['affiliation'][contrary_locale] if pr['affiliation']
               
-              presenter = conference.presenters.find_or_create_by_locale_and_name locale, name
+              presenter = Presenter.find_or_create_by_locale_and_name locale, name
               presenter.code ||= "#{event.code}:#{i + 1}"
+              # 上書きで更新する
               presenter.gravatar = pr['gravatar']
-              presenter.bio ||= bio
+              presenter.bio = bio
               presenter.affiliation = affiliation
               presenter.save if presenter.changed?
               event.presenters << presenter unless event.presenters.include? presenter
-              
             end if ev['presenters']
             
             ev['sub_events'].each_with_index do |sev, i|
@@ -153,9 +157,10 @@ private
       bio = pr['bio'][locale] || pr['bio'][contrary_locale] if pr['bio']
       affiliation = pr['affiliation'][locale] || pr['affiliation'][contrary_locale] if pr['affiliation']
               
-      presenter = parent.conference.presenters.find_or_create_by_locale_and_name locale, name
+      presenter = Presenter.find_or_create_by_locale_and_name locale, name
       presenter.code ||= "#{sub_event.code}:#{i + 1}"
-      presenter.gravatar = pr['gravatar']
+      # サプイベントは未設定の場合のみ設定する
+      presenter.gravatar ||= pr['gravatar']
       presenter.bio ||= bio
       presenter.bio = nil if presenter.bio == "#TODO"
       presenter.affiliation = affiliation
