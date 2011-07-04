@@ -103,10 +103,6 @@ private
             ev['presenters'].each_with_index do |pr, i|
             
               name = pr['name'][locale] || pr['name'][contrary_locale]
-# RubyKaigi.orgのtypoの修正
-# データが更新されたら削除する事
-name = "Koichiro Ohba" if name == "Koichiroo Ohba"
-# ここまで
               bio = pr['bio'][locale] || pr['bio'][contrary_locale] if pr['bio']
               affiliation = pr['affiliation'][locale] || pr['affiliation'][contrary_locale] if pr['affiliation']
               
