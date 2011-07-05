@@ -31,7 +31,7 @@ timetable:
               presenters:
                 - name: 
                     en: 'Thomas E Enebo'
-                    ja: 'トーマス・Ｅ・エネボ'
+                    ja: 'トーマス・E・エネボ'
         - start: '2011-07-15T19:55:00+09:00'
           end: '2011-07-15T20:00:00+09:00'
           events:
