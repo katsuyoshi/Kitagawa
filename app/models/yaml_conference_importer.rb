@@ -59,6 +59,7 @@ private
             day.events << event unless event.day
             event.save if event.changed?
             
+            event.event_presenters.delete_all
             ev['presenters'].each_with_index do |pr, i|
             
               name = pr['name'][locale] || pr['name'][contrary_locale]
@@ -104,6 +105,7 @@ private
     sub_event.position = index
     sub_event.save if sub_event.changed?
 
+    sub_event.event_presenters.delete_all
     sev['presenters'].each_with_index do |pr, i|
     
       name = pr['name'][locale] || pr['name'][contrary_locale]
