@@ -1,0 +1,78 @@
+---
+timetable:
+  '2011-07-16':
+    - date: '2011-07-16'
+      room_id: autograph
+      sessions:
+        - start: '2011-07-16T12:00:00+09:00'
+          end: '2011-07-16T13:30:00+09:00'
+          events:
+            - _id: '2011-07-16:12:00:autograph'
+              title:
+                en: 
+                ja: '『7つの言語 7つの世界』（オーム社）'
+              kind: session
+              presenters:
+                - name: 
+                    en: 'Yukihiro Matsumoto'
+                    ja: 'まつもとゆきひろ'
+  '2011-07-17':
+    - date: '2011-07-17'
+      room_id: autograph
+      sessions:
+        - start: '2011-07-16T12:00:00+09:00'
+          end: '2011-07-16T13:30:00+09:00'
+          events:
+            - _id: '2011-07-17:12:00:autograph'
+              title:
+                en: 
+                ja: '『Rails3レシピブック 190の技』（ソフトバンク クリエイティブ)'
+              kind: session
+              presenters:
+                - name: 
+                    en: 'Masayoshi Takahashi'
+                    ja: '高橋征義'
+                - name: 
+                    en: 'Akira Matsuda'
+                    ja: '松田 明'
+                - name: 
+                    en: 'Kyosuke MOROHASHI'
+                    ja: '諸橋 恭介'
+    - date: '2011-07-17'
+      room_id: autograph
+      sessions:
+        - start: '2011-07-17T15:40:00+09:00'
+          end: '2011-07-17T16:10:00+09:00'
+          events:
+            - _id: '2011-07-17:15:40:autograph'
+              title:
+                en: 
+                ja: '『ウェブオペレーション』(オライリー・ジャパン)'
+              kind: session
+              presenters:
+                - name: 
+                    en: 
+                    ja: '角征典'
+                - name: 
+                    en: 
+                    ja: '濱崎健吾'
+  '2011-07-18':
+    - date: '2011-07-18'
+      room_id: autograph
+      sessions:
+        - start: '2011-07-18T12:00:00+09:00'
+          end: '2011-07-18T13:30:00+09:00'
+          events:
+            - _id: '2011-07-18:12:00:autograph'
+              title:
+                en: 
+                ja: '『アジャイルサムライ』(オーム社)'
+              kind: session
+              presenters:
+                - name: 
+                    en: 
+                    ja: '西村直人'
+                - name: 
+                    en: 'Kakutani Shintaro'
+                    ja: '角谷 信太郎'
+          

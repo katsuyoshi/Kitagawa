@@ -3,7 +3,8 @@ class YamlConferenceImporter < Importer
 
   # db/jrubykaigi2011.yml から設定
   def self.import
-    yaml = load_yaml_file_with_key File.join(Rails.root, 'db', self.filename), self.conference.code
+    yaml = load_yaml_file_with_key File.join(Rails.root, 'db', self.filename), self.data_file_key
+p yaml
     if yaml
       self.parse_with_locale_and_timetable 'ja', yaml['timetable']
       self.parse_with_locale_and_timetable 'en', yaml['timetable']
@@ -13,6 +14,11 @@ class YamlConferenceImporter < Importer
   def self.filename
     nil
   end
+
+  def self.data_file_key
+    self.conference.code
+  end
+
 
 private
 
