@@ -2,6 +2,7 @@ Kitagawa::Application.routes.draw do
 
   get 'import/rubykaigi2011', :controller => 'import', :action => 'rubykaigi2011'
   get 'import/jrubykaigi2011', :controller => 'import', :action => 'jrubykaigi2011'
+  get 'import/rubyhackingnight', :controller => 'import', :action => 'rubyhackingnight'
 
   get "conferences/index"
   get 'conferences', :controller => 'conferences', :action => 'index'

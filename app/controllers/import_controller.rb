@@ -15,4 +15,11 @@ class ImportController < ApplicationController
     render :text => "updated : #{DataFile.updated}"
   end
   
+  def rubyhackingnight
+    Conference.transaction do
+      RubyHackingNightImporter.import
+    end
+    render :text => "updated : #{DataFile.updated}"
+  end
+  
 end
