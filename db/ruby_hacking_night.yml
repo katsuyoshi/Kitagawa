@@ -1,0 +1,70 @@
+---
+timetable:
+  '2011-07-19':
+    - date: '2011-07-19'
+      room_id: DAIBIRU
+      sessions:
+        - start: '2011-07-19T19:00:00+09:00'
+          end: '2011-07-19T19:30:00+09:00'
+          events:
+            - _id: open
+              title:
+                en: 'open'
+                ja: '開場'
+              kind: open
+        - start: '2011-07-19T19:30:00+09:00'
+          end: '2011-07-19T20:00:00+09:00'
+          events:
+            - _id: '2011-07-19:19:30'
+              title:
+                en: 'ruby-1.9.4 and beyond'
+                ja: 
+              kind: session
+              presenters:
+                - name:
+                    en: 'Koichi Sasada'
+                    ja: 'ささだこういち'
+        - start: '2011-07-19T20:00:00+09:00'
+          end: '2011-07-19T20:30:00+09:00'
+          events:
+            - _id: '2011-07-19:20:00'
+              title:
+                en: 'require, autoload, and thread'
+                ja:
+              kind: session
+              presenters:
+                - name:
+                    en: 'nahi'
+                    ja:
+        - start: '2011-07-19T20:30:00+09:00'
+          end: '2011-07-19T21:00:00+09:00'
+          events:
+            - _id: '2011-07-19:20:30'
+              title:
+                en: 'ruby-dev translation'
+                ja: 
+              kind: session
+              presenters:
+                - name:
+                    en: 'Yutaka Hara'
+                    ja: '原　悠'
+        - start: '2011-07-19T20:30:00+09:00'
+          end: '2011-07-19T21:00:00+09:00'
+          events:
+            - _id: '2011-07-19:20:30'
+              title:
+                en: 'Talk about GC'
+                ja: 
+              kind: session
+              presenters:
+                - name:
+                    en: 'nari'
+                    ja:
+        - start: '2011-07-19T21:00:00+09:00'
+          end: '2011-07-19T22:00:00+09:00'
+          events:
+            - _id: '2011-07-19:21:00'
+              title:
+                en: Workshop
+                ja: ワークショップ
+              kind: closing
