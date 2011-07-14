@@ -68,7 +68,7 @@ timetable:
                   presenters:
                     - name: 
                         en: 'Hirotsugu Asari'
-                        ja: 浅里洋嗣
+                        ja: 浅里 洋嗣
                 - _id: '15:20:30:2'
                   title:
                     en: 'CUVIC OnDemand on JRuby'
