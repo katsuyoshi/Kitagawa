@@ -1,0 +1,130 @@
+events:
+  - event:
+      code: 16MDN_01
+      archives:
+        - title:
+            ja: 
+            en: Ustream(1/2)
+          url: http://www.ustream.tv/recorded/16029739
+        - title:
+            ja: 
+            en: Ustream(2/2)
+          url: http://www.ustream.tv/recorded/16030591
+  - event:
+      code: 16M08
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16028068
+  - event:
+      code: 16M07
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16027722
+  - event:
+      code: 16M06
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16027257
+  - event:
+      code: 16M05
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16026857
+  - event:
+      code: 16M04
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16026028
+  - event:
+      code: 16M04
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16026028
+  - event:
+      code: 16M03
+      archives:
+        - title:
+            ja: 
+            en: Ustream(1/2)
+          url: http://www.ustream.tv/recorded/16025569
+        - title:
+            ja: 
+            en: Ustream(2/2)
+          url: http://www.ustream.tv/recorded/16025704
+  - event:
+      code: 16M02
+      archives:
+        - title:
+            ja: 
+            en: Ustream(1/5)
+          url: http://www.ustream.tv/recorded/16024362
+        - title:
+            ja: 
+            en: Ustream(2/5)
+          url: http://www.ustream.tv/recorded/16024472
+        - title:
+            ja: 
+            en: Ustream(3/5)
+          url: http://www.ustream.tv/recorded/16024700
+        - title:
+            ja: 
+            en: Ustream(4/5)
+          url: http://www.ustream.tv/recorded/16025020
+        - title:
+            ja: 
+            en: Ustream(5/5)
+          url: http://www.ustream.tv/recorded/16025279
+  - event:
+      code: 16S01
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16025545
+  - event:
+      code: 16S02
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16025972
+  - event:
+      code: 16S03
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16026864
+  - event:
+      code: 16S04
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16027298
+  - event:
+      code: 16S05
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16027736
+  - event:
+      code: 16S06
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16028117

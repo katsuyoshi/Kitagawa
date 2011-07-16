@@ -5,6 +5,7 @@ class ImportController < ApplicationController
       Rubykaigi2011Importer.import
       AutographRubykaigi2011Importer.import
       YamiRubykaigiImporter.import
+      ArchiveRubykaigi2011Importer.import
     end
     render :text => "updated : #{DataFile.updated}"
   end
