@@ -1,0 +1,70 @@
+parent_id: 16MDN
+sub_events:
+  - _id: '16MDN_01'
+    title:
+      en: 
+      ja: '某SIの研修部門でRubyの研修コースを作ってみたけどあんまりお客さんは入らなかった件'
+  - _id: '16MDN_02'
+    title:
+      en: 
+      ja: '宝石の中の小石ひとつ'
+  - _id: '16MDN_03'
+    title:
+      en: 
+      ja: '気付きやすい通知'
+  - _id: '16MDN_04'
+    title:
+      en: 
+      ja: '美しいRubyと私(それと闇プログラミング)'
+  - _id: '16MDN_05'
+    title:
+      en: 
+      ja: 'ライフハック'
+  - _id: '16MDN_06'
+    title:
+      en: 
+      ja: 'ODBA(Open Database Access, Object cache library)の紹介'
+  - _id: '16MDN_07'
+    title:
+      en: 
+      ja: ' '
+  - _id: '16MDN_08'
+    title:
+      en: 
+      ja: '割と大きな会社の中心で「楽しい開発を」と叫んだ獣'
+  - _id: '16MDN_09'
+    title:
+      en: 
+      ja: '闇 twitter への誘い'
+  - _id: '16MDN_10'
+    title:
+      en: 
+      ja: 'YummyRubyKaigi(aka #kintsuba)のご報告'
+  - _id: '16MDN_11'
+    title:
+      en: 
+      ja: 'Rubyの入り口でいきなり闇と立ち向かう'
+  - _id: '16MDN_12'
+    title:
+      en: 
+      ja: 'A Rubyiest in a GeekHouse 〜Ruby と 私〜'
+  - _id: '16MDN_13'
+    title:
+      en: 
+      ja: '賞金100万円！ フクオカRuby大賞'
+  - _id: '16MDN_14'
+    title:
+      en: 
+      ja: '最終日の昼休みにやります。Rails勉強会@東京 出張版'
+  - _id: '16MDN_15'
+    title:
+      en: 
+      ja: '私と1年目のyokohama.rb'
+  - _id: '16MDN_16'
+    title:
+      en: 
+      ja: '円環の理(Garbage Collection)'
+  - _id: '16MDN_17'
+    title:
+      en: 
+      ja: 'ぼくはぼっちです (仮)'

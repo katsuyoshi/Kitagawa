@@ -4,6 +4,7 @@ class ImportController < ApplicationController
     Conference.transaction do
       Rubykaigi2011Importer.import
       AutographRubykaigi2011Importer.import
+      YamiRubykaigiImporter.import
     end
     render :text => "updated : #{DataFile.updated}"
   end

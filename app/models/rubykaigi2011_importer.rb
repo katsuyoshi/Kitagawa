@@ -140,7 +140,7 @@ private
     sub_event = parent.sub_events.find_or_create_by_code_and_locale(code, locale)
     sub_event.kind = 'session'
     sub_event.title = sub_event_info['title'][locale] || sub_event_info['title'][contrary_locale]
-    sub_event.abstract = sub_event_info['abstract'][locale] || sub_event_info['abstract'][contrary_locale]
+    sub_event.abstract = sub_event_info['abstract'][locale] || sub_event_info['abstract'][contrary_locale] if sub_event_info['abstract']
     sub_event.abstract = nil if sub_event.abstract == "#TODO"
     sub_event.room = parent.room
     sub_event.start_at = parent.start_at
