@@ -15,11 +15,19 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26519661
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16028068
   - event:
       code: 16M07
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26519360
         - title:
             ja: 
             en: Ustream
@@ -29,11 +37,19 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26518984
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16027257
   - event:
       code: 16M05
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26510145
         - title:
             ja: 
             en: Ustream
@@ -43,11 +59,8 @@ events:
       archives:
         - title:
             ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16026028
-  - event:
-      code: 16M04
-      archives:
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26509659
         - title:
             ja: 
             en: Ustream
@@ -55,6 +68,10 @@ events:
   - event:
       code: 16M03
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26509306
         - title:
             ja: 
             en: Ustream(1/2)
@@ -66,6 +83,10 @@ events:
   - event:
       code: 16M02
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26508997
         - title:
             ja: 
             en: Ustream(1/5)
@@ -87,8 +108,33 @@ events:
             en: Ustream(5/5)
           url: http://www.ustream.tv/recorded/16025279
   - event:
+      code: 16M01
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26507951
+  - event:
+      code: 16MOP
+      archives:
+        - title:
+            ja: 
+            en: Vimeo(1/2)
+          url: http://vimeo.com/channels/rubykaigi2011#26507327
+        - title:
+            ja: 
+            en: Vimeo(2/2)
+          url: http://vimeo.com/channels/rubykaigi2011#26507433
+          
+
+
+  - event:
       code: 16S01
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26505174
         - title:
             ja: 
             en: Ustream
@@ -98,11 +144,19 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26505273
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16025972
   - event:
       code: 16S03
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26505386
         - title:
             ja: 
             en: Ustream
@@ -112,6 +166,10 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26506938
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16027298
   - event:
@@ -119,11 +177,19 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26507119
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16027736
   - event:
       code: 16S06
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26507239
         - title:
             ja: 
             en: Ustream
@@ -135,11 +201,19 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26539927
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16049633
   - event:
       code: 17M02
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26540910
         - title:
             ja: 
             en: Ustream
@@ -149,11 +223,19 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26541587
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16051035
   - event:
       code: 17M04
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26550795
         - title:
             ja: 
             en: Ustream
@@ -163,6 +245,10 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26551307
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16053943
   - event:
@@ -170,11 +256,19 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26552370
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16054465
   - event:
       code: 17M07
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26552699
         - title:
             ja: 
             en: Ustream
@@ -206,11 +300,19 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26527508
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16049536
   - event:
       code: 17S02
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26527636
         - title:
             ja: 
             en: Ustream
@@ -220,11 +322,19 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26527737
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16050862
   - event:
       code: 17S04
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26527951
         - title:
             ja: 
             en: Ustream
@@ -234,11 +344,19 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26536996
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16053973
   - event:
       code: 17S06
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26537238
         - title:
             ja: 
             en: Ustream
@@ -248,11 +366,19 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26537473
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16055341
   - event:
       code: 17S08
       archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26537809
         - title:
             ja: 
             en: Ustream
@@ -262,6 +388,10 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26538040
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16056627
   - event:
@@ -269,5 +399,164 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26538260
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16057125
+
+
+  - event:
+      code: 18S01
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26559563
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16077046
+  - event:
+      code: 18S02
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26559991
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16077641
+  - event:
+      code: 18S03
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26560146
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16078396
+  - event:
+      code: 18S04
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26560371
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16078848
+  - event:
+      code: 18S05
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26583517
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16080420
+  - event:
+      code: 18S06
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26584318
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16080744
+  - event:
+      code: 18S07
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26584855
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16081266
+  - event:
+      code: 18S08
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26585481
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16081617
+
+
+  - event:
+      code: 18M01
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16077150
+  - event:
+      code: 18M03
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16078403
+  - event:
+      code: 18M05
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16080378
+  - event:
+      code: 18M06
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16080774
+  - event:
+      code: 18M07
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16081247
+  - event:
+      code: 18M08
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16081597
+  - event:
+      code: 18M09_01
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16082195
+  - event:
+      code: 18M10
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16082958
+  - event:
+      code: 18MCL
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16083528
