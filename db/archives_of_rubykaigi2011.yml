@@ -527,6 +527,10 @@ events:
           url: http://vimeo.com/26602568
         - title:
             ja: 
+            en: Slide
+          url: http://www.clear-code.com/archives/RubyKaigi2011/
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16080774
   - event:
