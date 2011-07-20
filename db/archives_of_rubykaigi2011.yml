@@ -1,86 +1,26 @@
 events:
   - event:
-      code: 16MDN_01
+      # Opening
+      code: 16MOP
       archives:
         - title:
             ja: 
-            en: Ustream(1/2)
-          url: http://www.ustream.tv/recorded/16029739
+            en: Vimeo(1/2)
+          url: http://vimeo.com/channels/rubykaigi2011#26507327
         - title:
             ja: 
-            en: Ustream(2/2)
-          url: http://www.ustream.tv/recorded/16030591
+            en: Vimeo(2/2)
+          url: http://vimeo.com/channels/rubykaigi2011#26507433
   - event:
-      code: 16M08
-      archives:
-        - title:
-            ja: 
-            en: Vimeo
-          url: http://vimeo.com/channels/rubykaigi2011#26519661
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16028068
-  - event:
-      code: 16M07
+      # Ruby Ruined My Life.
+      code: 16M01
       archives:
         - title:
             ja: 
             en: Vimeo
-          url: http://vimeo.com/channels/rubykaigi2011#26519360
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16027722
+          url: http://vimeo.com/channels/rubykaigi2011#26507951
   - event:
-      code: 16M06
-      archives:
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16027257
-  - event:
-      code: 16M05
-      archives:
-        - title:
-            ja: 
-            en: Vimeo
-          url: http://vimeo.com/channels/rubykaigi2011#26510145
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16026857
-  - event:
-      code: 16M04
-      archives:
-        - title:
-            ja: 
-            en: Vimeo
-          url: http://vimeo.com/channels/rubykaigi2011#26509659
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16026028
-  - event:
-      code: 16M03
-      archives:
-        - title:
-            ja: 
-            en: Vimeo
-          url: http://vimeo.com/channels/rubykaigi2011#26509306
-        - title:
-            ja: 
-            en: slideshare
-          url: http://www.slideshare.net/hotchpotch/ruby-8630511
-        - title:
-            ja: 
-            en: Ustream(1/2)
-          url: http://www.ustream.tv/recorded/16025569
-        - title:
-            ja: 
-            en: Ustream(2/2)
-          url: http://www.ustream.tv/recorded/16025704
-  - event:
+      # Next version of Ruby 1.8 and 1.9
       code: 16M02
       archives:
         - title:
@@ -108,27 +48,98 @@ events:
             en: Ustream(5/5)
           url: http://www.ustream.tv/recorded/16025279
   - event:
-      code: 16M01
+      # Large-scale web service and operations with Ruby
+      code: 16M03
       archives:
         - title:
             ja: 
             en: Vimeo
-          url: http://vimeo.com/channels/rubykaigi2011#26507951
+          url: http://vimeo.com/channels/rubykaigi2011#26509306
+        - title:
+            ja: 
+            en: slideshare
+          url: http://www.slideshare.net/hotchpotch/ruby-8630511
+        - title:
+            ja: 
+            en: Ustream(1/2)
+          url: http://www.ustream.tv/recorded/16025569
+        - title:
+            ja: 
+            en: Ustream(2/2)
+          url: http://www.ustream.tv/recorded/16025704
   - event:
-      code: 16MOP
+      # Shipping at the Speed of Life
+      code: 16M04
       archives:
         - title:
             ja: 
-            en: Vimeo(1/2)
-          url: http://vimeo.com/channels/rubykaigi2011#26507327
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26509659
         - title:
             ja: 
-            en: Vimeo(2/2)
-          url: http://vimeo.com/channels/rubykaigi2011#26507433
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16026028
+  - event:
+      # Toggleable Mocks and Testing Strategies in a Service
+      code: 16M05
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26510145
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16026857
+  - event:
+      # Issues of Enterprise Rubyist
+      code: 16M06
+      archives:
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16027257
+  - event:
+      # How libraries in Japan use Ruby - "Next-L Enju" and "NDL Search"
+      code: 16M07
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26519360
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16027722
+  - event:
+      # Critical mission system implemented in Ruby
+      code: 16M08
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/channels/rubykaigi2011#26519661
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16028068
+  - event:
+      # 某SIの研修部門でRubyの研修コースを作ってみたけどあんまりお客さんは入らなかった件
+      code: 16MDN_01
+      archives:
+        - title:
+            ja: 
+            en: Ustream(1/2)
+          url: http://www.ustream.tv/recorded/16029739
+        - title:
+            ja: 
+            en: Ustream(2/2)
+          url: http://www.ustream.tv/recorded/16030591
           
 
 
   - event:
+      # Ruby, that community and me.
       code: 16S01
       archives:
         - title:
@@ -140,6 +151,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16025545
   - event:
+      # The Real-time Profiler for Ruby
       code: 16S02
       archives:
         - title:
@@ -151,6 +163,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16025972
   - event:
+      # Dynamic Component System and Memory Reduction of VM for Embedded Systems
       code: 16S03
       archives:
         - title:
@@ -162,6 +175,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16026864
   - event:
+      # Lightweight Ruby
       code: 16S04
       archives:
         - title:
@@ -173,6 +187,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16027298
   - event:
+      # Parallel world of CRuby's GC
       code: 16S05
       archives:
         - title:
@@ -184,6 +199,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16027736
   - event:
+      # Ruby Interpreters in the Parallel Worlds
       code: 16S06
       archives:
         - title:
@@ -197,6 +213,7 @@ events:
 
 
   - event:
+      # How to make secure program
       code: 17M01
       archives:
         - title:
@@ -208,6 +225,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16049633
   - event:
+      # The best practice of building mobile website with jpmobile
       code: 17M02
       archives:
         - title:
@@ -219,6 +237,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16050191
   - event:
+      # Ruby on Rails development that doesn't hurt
       code: 17M03
       archives:
         - title:
@@ -230,6 +249,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16051035
   - event:
+      # Road to the Ruby Master
       code: 17M04
       archives:
         - title:
@@ -245,6 +265,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16051768
   - event:
+      # BDD style Unit Testing
       code: 17M05
       archives:
         - title:
@@ -256,6 +277,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16053943
   - event:
+      # 5 years know-how of RSpec driven Rails app. development.
       code: 17M06
       archives:
         - title:
@@ -271,6 +293,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16054465
   - event:
+      # Efficient JavaScript integration testing with Ruby and V8 engine.
       code: 17M07
       archives:
         - title:
@@ -282,6 +305,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16055331
   - event:
+      # Advancing Net::HTTP
       code: 17M08
       archives:
         - title:
@@ -289,6 +313,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16055711
   - event:
+      # The Gate
       code: 17M09
       archives:
         - title:
@@ -296,6 +321,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16056614
   - event:
+      # ruby trunk changes - Statistics Edition
       code: 17M10_01
       archives:
         - title:
@@ -308,6 +334,7 @@ events:
           url: http://www.slideshare.net/nagachika/ruby-trunk-changes
 
   - event:
+      # Actors on stage
       code: 17S01
       archives:
         - title:
@@ -319,6 +346,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16049536
   - event:
+      # Drip: Persistent tuple space and stream.
       code: 17S02
       archives:
         - title:
@@ -330,6 +358,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16050109
   - event:
+      # Writing Friendly Libraries
       code: 17S03
       archives:
         - title:
@@ -341,6 +370,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16050862
   - event:
+      # Use rails_best_practices to refactor your rails codes
       code: 17S04
       archives:
         - title:
@@ -352,6 +382,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16051491
   - event:
+      # Improvement of ThreadGroup class and its usage
       code: 17S05
       archives:
         - title:
@@ -363,6 +394,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16053973
   - event:
+      # How to read JIS X 3017
       code: 17S06
       archives:
         - title:
@@ -374,6 +406,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16054590
   - event:
+      # Java in Ruby: Scripting Java in JRuby
       code: 17S07
       archives:
         - title:
@@ -385,6 +418,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16055341
   - event:
+      # MacRuby on Rails
       code: 17S08
       archives:
         - title:
@@ -404,6 +438,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16055853
   - event:
+      # Method Shelters : Another Way to Resolve Class Extension Conflicts
       code: 17S09
       archives:
         - title:
@@ -415,6 +450,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16056627
   - event:
+      # CRuby lock design improvement and why it sucks
       code: 17S10
       archives:
         - title:
@@ -431,7 +467,131 @@ events:
           url: http://www.ustream.tv/recorded/16057125
 
 
+
+
   - event:
+      # Ruby-no-kai Itself and Some Related Projects.
+      code: 18M01
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/26583234
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16077150
+  - event:
+      # All About RubyKaigi Ecosystem
+      code: 18M03
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/26598026
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16078403
+  - event:
+      # The Art of "Legacy" Ruby Code Maintainance
+      code: 18M05
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/26601980
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16080378
+  - event:
+      # How to create a testing framework
+      code: 18M06
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/26602568
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16080774
+  - event:
+      # Know Ruby, will travel
+      code: 18M07
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: 
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16081247
+  - event:
+      # You must unlearn what you have learned: revisited
+      code: 18M08
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/26627854
+        - title:
+            ja: 
+            en: slideshare
+          url: http://www.slideshare.net/snoozer05/20110718-youmustunlearnwhatyouhavelearned-rivisited
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16081597
+  - event:
+      # Agile UX Live Report
+      code: 18M09_01
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/26631948
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16082195
+  - event:
+      # More Ruby for a newcomer programmers
+      code: 18M09_04
+      archives:
+        - title:
+            ja: 
+            en: slideshare
+          url: http://www.slideshare.net/yuumi3/ruby-8640024
+  - event:
+      # pebbles: A namespace for joke gems
+      code: 18M10
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/26633560
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16082958
+  - event:
+      # Closing
+      code: 18MCL
+      archives:
+        - title:
+            ja: 
+            en: Vimeo
+          url: http://vimeo.com/26647273
+        - title:
+            ja: 
+            en: Ustream
+          url: http://www.ustream.tv/recorded/16083528
+
+  - event:
+      # Parse.y Famtour
       code: 18S01
       archives:
         - title:
@@ -447,6 +607,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16077046
   - event:
+      # Visual Glitch, using Ruby
       code: 18S02
       archives:
         - title:
@@ -458,6 +619,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16077641
   - event:
+      # Finding Black Holes in Ruby with the Small Eigen Collider
       code: 18S03
       archives:
         - title:
@@ -469,6 +631,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16078396
   - event:
+      # The Great Eastern Japan Earthquake and what you can do as a Rubyist ?
       code: 18S04
       archives:
         - title:
@@ -480,6 +643,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16078848
   - event:
+      # Writing custom DataMapper Adapters
       code: 18S05
       archives:
         - title:
@@ -491,6 +655,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16080420
   - event:
+      # Personal Dilemma: How to work with Ruby in Brazil?
       code: 18S06
       archives:
         - title:
@@ -502,6 +667,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16080744
   - event:
+      # About New Version of DeepConnect for Distributed Object Environment
       code: 18S07
       archives:
         - title:
@@ -513,6 +679,7 @@ events:
             en: Ustream
           url: http://www.ustream.tv/recorded/16081266
   - event:
+      # Underlaying Technologies and Techniques behind O/R Mapper
       code: 18S08
       archives:
         - title:
@@ -523,104 +690,3 @@ events:
             ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16081617
-
-
-  - event:
-      code: 18M01
-      archives:
-        - title:
-            ja: 
-            en: Vimeo
-          url: http://vimeo.com/26583234
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16077150
-  - event:
-      code: 18M03
-      archives:
-        - title:
-            ja: 
-            en: Vimeo
-          url: http://vimeo.com/26598026
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16078403
-  - event:
-      code: 18M05
-      archives:
-        - title:
-            ja: 
-            en: Vimeo
-          url: http://vimeo.com/26601980
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16080378
-  - event:
-      code: 18M06
-      archives:
-        - title:
-            ja: 
-            en: Vimeo
-          url: http://vimeo.com/26602568
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16080774
-  - event:
-      code: 18M07
-      archives:
-        - title:
-            ja: 
-            en: Vimeo
-          url: 
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16081247
-  - event:
-      code: 18M08
-      archives:
-        - title:
-            ja: 
-            en: Vimeo
-          url: http://vimeo.com/26627854
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16081597
-  - event:
-      code: 18M09_01
-      archives:
-        - title:
-            ja: 
-            en: Vimeo
-          url: http://vimeo.com/26631948
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16082195
-  - event:
-      code: 18M10
-      archives:
-        - title:
-            ja: 
-            en: Vimeo
-          url: http://vimeo.com/26633560
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16082958
-  - event:
-      code: 18MCL
-      archives:
-        - title:
-            ja: 
-            en: Vimeo
-          url: http://vimeo.com/26647273
-        - title:
-            ja: 
-            en: Ustream
-          url: http://www.ustream.tv/recorded/16083528
