@@ -318,6 +318,18 @@ events:
       archives:
         - title:
             ja: 
+            en: Vimeo
+          url: http://vimeo.com/26559212
+        - title:
+            ja: 
+            en: slideshare
+          url: http://www.slideshare.net/kakutani/the-gate-8616906
+        - title:
+            ja: 
+            en: slideshare
+          url: http://www.slideshare.net/kakutani/the-gate-8616906
+        - title:
+            ja: 
             en: Ustream
           url: http://www.ustream.tv/recorded/16056614
   - event:
